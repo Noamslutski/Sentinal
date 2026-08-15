@@ -1,0 +1,41 @@
+name: build
+
+# Builds Sentinel on a clean Windows runner (MSYS2 UCRT64, matching the local
+# toolchain) and publishes the executable as a downloadable artifact. This lets
+# you grab a freshly built Sentinel.exe from GitHub without a local toolchain.
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up MSYS2 (UCRT64 + gcc)
+        uses: msys2/setup-msys2@v2
+        with:
+          msystem: UCRT64
+          update: true
+          install: >-
+            mingw-w64-ucrt-x86_64-gcc
+
+      - name: Build Sentinel
+        shell: msys2 {0}
+        run: |
+          mkdir -p build
+          gcc -std=c11 -Wall -Wextra -O2 -mwindows \
+            -Isrc -Iinclude \
+            src/main.c src/ui.c src/system/sysinfo.c src/scanner/scanner.c \
+            -o build/Sentinel.exe \
+            -lgdi32 -luser32 -ladvapi32 -lbcrypt -lshell32 -lole32
+          ls -l build/Sentinel.exe
+
+      - name: Upload executable
+        uses: actions/upload-artifact@v4
+        with:
+          name: Sentinel-windows
+          path: build/Sentinel.exe

@@ -1,0 +1,26 @@
+# Build output
+/build/
+*.o
+*.obj
+*.exe
+*.dll
+*.a
+*.lib
+
+# CMake artifacts (if configured in-source by accident)
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# Runtime data / generated output
+/data/*.db
+/data/*.sqlite
+/reports/*.txt
+/reports/*.json
+/reports/*.html
+
+# Editor / OS
+*.swp
+Thumbs.db
+.DS_Store

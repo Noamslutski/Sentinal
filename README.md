@@ -1,8 +1,8 @@
-# sentinal
+# Sentinal
 
 ## Security Research & Host Analysis Platform
 
-sentinal is a C-based security research platform designed to analyze and assess the security posture of authorized Windows systems.
+Sentinal is a C-based security research platform designed to analyze and assess the security posture of authorized Windows systems.
 
 The project combines:
 

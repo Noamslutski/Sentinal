@@ -1,8 +1,8 @@
-# Sentinel
+# sentinal
 
 ## Security Research & Host Analysis Platform
 
-Sentinel is a C-based security research platform designed to analyze and assess the security posture of authorized Windows systems.
+sentinal is a C-based security research platform designed to analyze and assess the security posture of authorized Windows systems.
 
 The project combines:
 
@@ -20,13 +20,13 @@ The project combines:
 
 The long-term goal is to create a powerful **host security analysis and reverse-engineering platform** capable of collecting evidence, correlating findings, and producing detailed security reports.
 
-> **Important:** Sentinel is intended for systems you own or have explicit authorization to assess. It is not designed to bypass authentication, obtain unauthorized access, steal information, or secretly exfiltrate files.
+> **Important:** sentinal is intended for systems you own or have explicit authorization to assess. It is not designed to bypass authentication, obtain unauthorized access, steal information, or secretly exfiltrate files.
 
 ---
 
 ## Project Goals
 
-Sentinel will progressively evolve from a simple filesystem scanner into a complete host-security research platform.
+sentinal will progressively evolve from a simple filesystem scanner into a complete host-security research platform.
 
 ### Core objectives
 
@@ -52,7 +52,7 @@ Sentinel will progressively evolve from a simple filesystem scanner into a compl
 # Architecture
 
 ```text
-                         SENTINEL
+                         sentinal
                             │
                 ┌───────────┴───────────┐
                 │                       │
@@ -127,7 +127,7 @@ The initial implementation targets Windows.
 The project will eventually follow this structure:
 
 ```text
-Sentinel/
+sentinal/
 │
 ├── CMakeLists.txt
 ├── README.md
@@ -198,13 +198,13 @@ The initial version will be much smaller and will grow into this structure gradu
 Example:
 
 ```text
-sentinel.exe --help
+sentinal.exe --help
 
-sentinel.exe scan <path>
+sentinal.exe scan <path>
 
-sentinel.exe analyze <file>
+sentinal.exe analyze <file>
 
-sentinel.exe report
+sentinal.exe report
 ```
 
 ---
@@ -256,7 +256,7 @@ Hash
 Timestamp
 ```
 
-This allows Sentinel to detect changes between scans.
+This allows sentinal to detect changes between scans.
 
 ---
 
@@ -318,7 +318,7 @@ Potential indicators include:
 
 Individual indicators should not automatically be classified as malware.
 
-Sentinel should instead combine evidence.
+sentinal should instead combine evidence.
 
 ---
 
@@ -344,7 +344,7 @@ PID      NAME
 --------------------------
 1204     explorer.exe
 2480     chrome.exe
-4216     sentinel.exe
+4216     sentinal.exe
 ```
 
 ---
@@ -366,7 +366,7 @@ Report unexpected or suspicious entries.
 
 # Phase 8 — Risk Engine
 
-Sentinel will assign findings a risk score based on multiple indicators.
+sentinal will assign findings a risk score based on multiple indicators.
 
 Example:
 
@@ -425,7 +425,7 @@ path
 timestamp
 ```
 
-This allows Sentinel to answer questions such as:
+This allows sentinal to answer questions such as:
 
 > What changed since yesterday?
 
@@ -444,7 +444,7 @@ report.html
 Example:
 
 ```text
-SENTINEL SECURITY REPORT
+sentinal SECURITY REPORT
 
 Files scanned: 183492
 
@@ -460,7 +460,7 @@ Overall risk: HIGH
 
 # Phase 11 — Email Reporting
 
-Sentinel can optionally send an authenticated report to a configured security mailbox.
+sentinal can optionally send an authenticated report to a configured security mailbox.
 
 Only security findings and reports should be transmitted by default.
 
@@ -502,7 +502,7 @@ call graph
 cross-reference analysis
 ```
 
-This turns Sentinel into a reverse-engineering platform.
+This turns sentinal into a reverse-engineering platform.
 
 ---
 
@@ -546,7 +546,7 @@ The AI should reason over collected evidence rather than automatically making un
 
 # Security Principles
 
-Sentinel follows these principles:
+sentinal follows these principles:
 
 1. **Authorization first**
 2. **Least privilege**
@@ -574,14 +574,14 @@ Testing should be performed on:
 The first working version will intentionally be simple.
 
 ```text
-sentinel.exe scan C:\Test
+sentinal.exe scan C:\Test
 ```
 
 Expected output:
 
 ```text
 ╔══════════════════════════════════════╗
-║          SENTINEL SECURITY           ║
+║          sentinal SECURITY           ║
 ║           FILE SCANNER               ║
 ╚══════════════════════════════════════╝
 
@@ -614,7 +614,7 @@ The ultimate goal is to create a modular security research platform capable of a
 
 > **What exists on this authorized machine, what has changed, what looks unusual, why does it look unusual, and what evidence supports that conclusion?**
 
-Sentinel is intended to become a combination of:
+sentinal is intended to become a combination of:
 
 ```text
 Host Scanner
